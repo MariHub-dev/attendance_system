@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                                 echo "<td>
                                                         <div class='action-buttons'>
-                                                            <a href='update_students.php?id=" . $rown['id'] . "' class=' btn btn-primary'>Edit</a>
+                                                            <a href='update.php?id=" . $rown['id'] . "' class=' btn btn-primary'>Edit</a>
                                                             <a href='delete.php?id=" . $rown['id'] . "' class='btn btn-danger'>Delete</a>
                                                         </div>
                                                     </td>";
@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </ul>
                             </nav>
 
-                            <!-- Add Student Modal -->
+                            
                             <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form action="" method="POST" class="modal-content">
@@ -157,6 +157,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </form>
                                 </div>
                             </div>
+
+                            
 
                         </div>
                     </div>

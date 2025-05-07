@@ -3,7 +3,7 @@
     <h6 class="mb-4">🔵 Attendance</h6>
   </a>
 
-  <small>Overview</small>
+  <small >Overview</small>
   <a href="index.php"><i class="bi bi-house-door-fill me-2"></i>Dashboard</a>
 
   <small>Pages</small>
@@ -13,8 +13,8 @@
   <a href="view_att.php"><i class="bi bi-calendar-check-fill me-2"></i>View Attendance</a>
 
 
-  <a href="logout.php" class="mt-5"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
-  <div class="mt-5 p-5 bg-primary rounded"></div>
+  <a href="../auth/logout.php" class="mt-5"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
+  <div class=" ad-box mt-5 p-5  bg-primary rounded"></div>
 </div>
 
 <style>
@@ -23,7 +23,7 @@
     padding: 16px;
     color: white;
     border-radius: 16px;
-    height: 100vh;
+    height: 97vh;
     position: fixed;
     overflow-y: auto;
 
@@ -34,12 +34,12 @@
     display: block;
     margin-bottom: 1rem;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   small {
     color: #cfd1ff;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .sidebar a:hover,
@@ -61,9 +61,10 @@
   }
 
   .search-box input {
-    background-color: #cfd8ff;
+    background-color:rgb(221, 226, 250);
     border: none;
     padding: 8px 12px;
     border-radius: 6px;
+    width: 100%;
   }
 </style>

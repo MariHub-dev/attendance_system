@@ -24,8 +24,9 @@ session_start();
                     <form action="" method="post" >
                     <select class="form-select mb-3" id="sems" name="sems" required>
                             <option value="" disabled selected>User Role</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Tecaher 2</option>
+                            <option value="admin">Admin</option>
+                            <option value="teacher">Tecaher</option>
+                            <option value="student">Student</option>
                         </select>
                         <input type="email" name="email" placeholder="Email" class="form-control mb-3" required>
                         

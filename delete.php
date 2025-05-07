@@ -2,17 +2,22 @@
 include_once 'config/db.php';
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
 
-    $deleteQuery = "DELETE FROM students WHERE id=$id";
+    // First delete related attendance records
+    $deleteAttendance = $conn->prepare("DELETE FROM attendance WHERE student_id = ?");
+    $deleteAttendance->bind_param("i", $id);
+    $deleteAttendance->execute();
 
-    if ($conn->query($deleteQuery) === true) {
-        header('Location: add_students.php');
-        exit;
+    // Now delete the student
+    $deleteStudent = $conn->prepare("DELETE FROM students WHERE id = ?");
+    $deleteStudent->bind_param("i", $id);
+    
+    if ($deleteStudent->execute()) {
+        header("Location: students.php?msg=deleted");
+        exit();
     } else {
-        echo "Error deleting Student : " . $conn->error;
+        echo "Failed to delete student.";
     }
 }
-
-$conn->close();
 ?>

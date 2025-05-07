@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Document</title>
@@ -14,11 +14,15 @@
     body {
         background-color: #F0E5ED;
     }
+
     .card {
-        
+
         border: none;
         border-radius: 16px;
 
+    }
+    select{
+        width: 50px;
     }
 </style>
 
@@ -38,11 +42,34 @@
                             include_once 'config/db.php';
                             ?>
                             <form method="GET" class="mb-4 d-flex align-items-center gap-3">
-                                <h4 class="me-5">Attendance Records</h4>
+                                <h5 class="me-5">Attendance Records</h5>
 
                                 <input type="date" id="filter_date" name="date" class="form-control w-50" value="<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>" />
+                                
+                                    <select name="month" class="form-select " required >
+                                        <option value="">Select Month</option>
+                                        <?php
+                                        for ($m = 1; $m <= 12; $m++) {
+                                            $monthName = date('F', mktime(0, 0, 0, $m, 1));
+                                            echo "<option value='$m'>$monthName</option>";
+                                        }
+                                        ?>
+                                    </select>
+
+                                    <select name="year" class="form-select" required>
+                                        <option value="">Select Year</option>
+                                        <?php
+                                        $currentYear = date("Y");
+                                        for ($y = $currentYear; $y >= $currentYear - 5; $y--) {
+                                            echo "<option value='$y'>$y</option>";
+                                        }
+                                        ?>
+                                    </select>
+
+                             
+
                                 <button type="submit" class="btn btn-primary">Filter</button>
-                                <a href="view_attendance.php" class="btn btn-secondary">Reset</a>
+                                <a href="view_att.php" class="btn btn-secondary">Reset</a>
                             </form>
                             <?php
                             $dateFilter = isset($_GET['date']) ? $_GET['date'] : null;
@@ -76,7 +103,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    
+
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
@@ -94,7 +121,7 @@
                                     ?>
                                 </tbody>
                             </table>
-                            
+
                         </div>
                     </div>
                 </div>
