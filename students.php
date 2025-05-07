@@ -22,12 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Document</title>
 </head>
 <body>
+    <style>
+         .card {
+        
+        border: none;
+        border-radius: 16px;
+
+    }
+    </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 mt-2">
@@ -36,8 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="col-md-10 mt-2 gap-3">
                 <?php include_once 'includes/navbar.php' ?>
                 <div class="main-content">
-                    <div class=" py-5">
-                        <div class="card p-3 mt-4">
+                    <div class=" ">
+                        <div class="card p-3 ">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h6>Students Info</h6>
                                 <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStudentModal">Add Student</a>

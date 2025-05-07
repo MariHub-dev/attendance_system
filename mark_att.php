@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Document</title>
@@ -11,6 +12,12 @@
 <style>
     body {
         background-color: #F0E5ED;
+    }
+    .card {
+        
+        border: none;
+        border-radius: 16px;
+
     }
 </style>
 
@@ -25,8 +32,8 @@
 
                 <div class="main-content">
 
-                    <div class=" py-5">
-                        <div class="card p-3 mt-4">
+                    <div class=" ">
+                        <div class="card p-3 ">
                             <form action="mark_att.php" method="POST">
                                 <table class="table">
                                     <thead>
@@ -55,7 +62,7 @@
                                         ?>
                                     </tbody>
                                 </table>
-                                <button type="submit" class="btn btn-primary">Submit Attendance</button>
+                                <a href="view_att.php"><button type="submit" class="btn btn-primary">Submit Attendance</button></a>
                             </form>
 
                         </div>
@@ -72,7 +79,7 @@
                             $stmt->execute();
                         }
 
-                        echo "<script>alert('Attendance marked successfully'); window.location.href='students.php';</script>";
+                        echo "<script>alert('Attendance marked successfully'); window.location.href='view_att.php';</script>";
                     }
                     ?>
 

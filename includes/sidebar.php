@@ -4,15 +4,16 @@
   </a>
 
   <small>Overview</small>
-  <a href="index.php">Dashboard</a>
+  <a href="index.php"><i class="bi bi-house-door-fill me-2"></i>Dashboard</a>
 
   <small>Pages</small>
-  <a href="add_students.php">Students List</a>
-  <a href="view_att.php">View Attendance</a>
-  <a href="mark_att.php">Mark Attendance</a>
+  <a href="students.php"><i class="bi bi-people-fill me-2"></i>Students List</a>
   
+  <a href="mark_att.php"><i class="bi bi-pencil-square me-2"></i>Mark Attendance</a>
+  <a href="view_att.php"><i class="bi bi-calendar-check-fill me-2"></i>View Attendance</a>
 
-  <a href="#" class="mt-5">Logout</a>
+
+  <a href="logout.php" class="mt-5"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
   <div class="mt-5 p-5 bg-primary rounded"></div>
 </div>
 
@@ -23,7 +24,8 @@
     color: white;
     border-radius: 16px;
     height: 100vh;
-
+    position: fixed;
+    overflow-y: auto;
 
   }
 
@@ -32,6 +34,7 @@
     display: block;
     margin-bottom: 1rem;
     text-decoration: none;
+    font-size: 14px;
   }
 
   small {

@@ -1,5 +1,5 @@
 <?php
-include 'config/db.php';
+include_once 'config/db.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
         header('Location: add_students.php');
         exit;
     } else {
-        echo "Error deleting record: " . $conn->error;
+        echo "Error deleting Student : " . $conn->error;
     }
 }
 
