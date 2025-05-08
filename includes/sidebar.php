@@ -1,20 +1,25 @@
 <div class="sidebar">
-  <a href="../index.php">
-    <h6 class="mb-4">🔵 Attendance</h6>
+  <a href="index.php">
+    <h6 class="mb-3">🔵 Attendance</h6>
   </a>
 
-  <small >Overview</small>
+  <small>Overview</small>
   <a href="index.php"><i class="bi bi-house-door-fill me-2"></i>Dashboard</a>
 
   <small>Pages</small>
   <a href="students.php"><i class="bi bi-people-fill me-2"></i>Students List</a>
   
+
   <a href="mark_att.php"><i class="bi bi-pencil-square me-2"></i>Mark Attendance</a>
   <a href="view_att.php"><i class="bi bi-calendar-check-fill me-2"></i>View Attendance</a>
 
+  <small>Others</small>
+  
 
-  <a href="../auth/logout.php" class="mt-5"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
-  <div class=" ad-box mt-5 p-5  bg-primary rounded"></div>
+  <a href="index.php"><i class="bi bi-house-door-fill me-2"></i>settings</a>
+
+  <a href="auth/logout.php" class=" logout"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
+  <div class=" ad-box p-5  bg-primary rounded"></div>
 </div>
 
 <style>
@@ -26,24 +31,33 @@
     height: 97vh;
     position: fixed;
     overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
 
   }
+  .sidebar::-webkit-scrollbar {
+    display: none;             /* For Chrome, Safari, and Edge */
+}
 
   .sidebar a {
     color: white;
     display: block;
-    margin-bottom: 1rem;
+    padding: 10px;
+    
     text-decoration: none;
     font-size: 13px;
+
   }
 
   small {
-    color: #cfd1ff;
+    color: grey;
     margin-bottom: 20px;
   }
 
   .sidebar a:hover,
   .sidebar .active {
+    background-color: blue;
+    border-radius: 10px;
     color: #cfd1ff;
 
   }
@@ -61,10 +75,14 @@
   }
 
   .search-box input {
-    background-color:rgb(221, 226, 250);
+    background-color: rgb(221, 226, 250);
     border: none;
     padding: 8px 12px;
     border-radius: 6px;
     width: 100%;
+  }
+
+  .logout {
+    margin-top: 120px;
   }
 </style>

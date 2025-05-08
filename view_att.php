@@ -21,7 +21,8 @@
         border-radius: 16px;
 
     }
-    select{
+
+    select {
         width: 50px;
     }
 </style>
@@ -45,28 +46,11 @@
                                 <h5 class="me-5">Attendance Records</h5>
 
                                 <input type="date" id="filter_date" name="date" class="form-control w-50" value="<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>" />
-                                
-                                    <select name="month" class="form-select " required >
-                                        <option value="">Select Month</option>
-                                        <?php
-                                        for ($m = 1; $m <= 12; $m++) {
-                                            $monthName = date('F', mktime(0, 0, 0, $m, 1));
-                                            echo "<option value='$m'>$monthName</option>";
-                                        }
-                                        ?>
-                                    </select>
 
-                                    <select name="year" class="form-select" required>
-                                        <option value="">Select Year</option>
-                                        <?php
-                                        $currentYear = date("Y");
-                                        for ($y = $currentYear; $y >= $currentYear - 5; $y--) {
-                                            echo "<option value='$y'>$y</option>";
-                                        }
-                                        ?>
-                                    </select>
 
-                             
+
+
+
 
                                 <button type="submit" class="btn btn-primary">Filter</button>
                                 <a href="view_att.php" class="btn btn-secondary">Reset</a>
@@ -125,8 +109,9 @@
                         </div>
                     </div>
                 </div>
+                <?php include_once 'includes/footer.php'; ?>
             </div>
-
+           
         </div>
     </div>
     </div>

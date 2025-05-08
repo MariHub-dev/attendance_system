@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: auth/login.php");
+    exit();
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +33,7 @@
 
     }
 
-    .main-content {}
+    
 </style>
 
 <body>
@@ -74,11 +85,11 @@
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="card text-white bg-danger d-flex align-items-center p-3">
-                                        
-                                        
-                                            <p class="m-0 p-0">Absent Today</p>
-                                            <p class="h1 m-0 p-0"><?= $absent ?></p>
-                                       
+
+
+                                        <p class="m-0 p-0">Absent Today</p>
+                                        <p class="h1 m-0 p-0"><?= $absent ?></p>
+
 
 
 
@@ -145,7 +156,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="card p-3">
-                                    <h5 class="mb-3">Weekly Summary</h5>
+                                        <h5 class="mb-3">Weekly Summary</h5>
                                         <?php
 
                                         $startOfWeek = date('Y-m-d', strtotime('sunday last week'));
@@ -178,7 +189,7 @@
                                         }
                                         ?>
 
-                                       
+
 
                                         <canvas id="weeklyAttendanceChart"></canvas>
                                         <script>
@@ -224,7 +235,7 @@
 
 
 
-                            
+
 
 
 
@@ -232,9 +243,13 @@
                         </div>
                     </div>
                 </div>
+                <?php include_once 'includes/footer.php'; ?>
             </div>
+
         </div>
     </div>
+
+
 </body>
 
 </html>

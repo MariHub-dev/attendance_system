@@ -12,38 +12,31 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Login Page </title>
+    <title>Signup Page </title>
 </head>
 
 <body>
-    <div class="container justify-content-center align-items-center">
+<div class="conatiner justify-content-center align-items-center gap-3 vh-100">
         <div class="row">
+
             <div class="col-md-12 right_side justify-content-center align-items-center vh-100">
-                <div class="col-md-4 ">
-                    <h4>Hello, Please Login!</h4>
-                    <form action="" method="post" >
-                    <select class="form-select mb-3" id="sems" name="sems" required>
-                            <option value="" disabled selected>User Role</option>
-                            <option value="admin">Admin</option>
-                            <option value="teacher">Tecaher</option>
-                            <option value="student">Student</option>
-                        </select>
+                <div class="card p-3">
+                <h4>Welcome Back!, Please Login!</h4>
+                    <form action="" method="post">
+
                         <input type="email" name="email" placeholder="Email" class="form-control mb-3" required>
-                        
                         <input type="password" name="password" placeholder="Password" class="form-control mb-3" required>
-                        <p><a href="http://" class="text-muted text-decoration-none text-end">Forgot Password</a></p>
+                        <p><a href="http://" class="text-muted text-decoration-none text-start">Forgot Password</a></p>
                         <button type="submit" class="signup_btn btn btn-primary">Login</button>
-                        <button type="submit" class="google_btn">Login with Google</button>
+                        <button type="submit" class="google_btn ">Login with Google</button>
                         <p>Not A Member Yet? <a href="../auth/signup.php">Signup</a></p>
                     </form>
-
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
-
-
+   
     <?php
 
 
@@ -60,18 +53,18 @@ session_start();
         if (empty($email) || empty($password)) {
             $error = "Email and password are required.";
         } else {
-            $stmt = $conn->prepare("SELECT id, first_name, password FROM users WHERE email = ?");
+            $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $stmt->store_result();
 
             if ($stmt->num_rows === 1) {
-                $stmt->bind_result($id, $first_name, $hashed_password);
+                $stmt->bind_result($id, $username, $hashed_password);
                 $stmt->fetch();
                 if (password_verify($password, $hashed_password)) {
                     $_SESSION['user_id'] = $id;
-                    $_SESSION['first_name'] = $first_name;
-                    header("Location:../dashboard.php");
+                    $_SESSION['username'] = $username;
+                    header("Location:../index.php");
                     exit();
                 } else {
                     $error = "Incorrect password.";
@@ -98,62 +91,47 @@ session_start();
 
     <style>
         body {
+            background-color: rgb(2, 21, 84);
             margin: 0;
             padding: 0;
             font-family: Helvetica, sans-serif;
         }
 
+        .card {
+            border-radius: 16px;
+            padding: 20px;
+            width: 40%;
+        }
+
         h4 {
             margin-bottom: 30px;
         }
-
-
-        .left_side {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .left_side,
-        img {
-            width: 45%;
-        }
-
-        .right_side {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            padding: 40px;
-        }
-
         .signup_btn {
-
-            color: white;
             padding: 10px 22px;
             width: 100%;
             font-size: 16px;
             cursor: pointer;
+            border: none;
+           
             border-radius: 10px;
             transition: 0.25s ease-in-out;
             margin-bottom: 20px;
         }
-
+        .right_side {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                text-align: center;
+                padding: 40px;
+            }
 
 
         p {
             font-size: 12px;
             color: grey;
+
         }
-
-        input {
-            border: 1px solid #ccc;
-        }
-
-        /*-----------------------------------*/
-
         .google_btn {
             background-color: #010432;
             border: none;

@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     $deleteStudent->bind_param("i", $id);
     
     if ($deleteStudent->execute()) {
-        header("Location: students.php?msg=deleted");
+        header("Location: students.php");
         exit();
     } else {
         echo "Failed to delete student.";
